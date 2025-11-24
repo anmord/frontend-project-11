@@ -14,3 +14,6 @@ lint:
 	npx eslint .
 
 .PHONY: test
+
+versel:
+	npm run build
