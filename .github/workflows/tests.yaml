@@ -36,7 +36,7 @@ jobs:
       - run: make install
       - run: make lint
       #- run: make test-coverage
-      - run: make gendiff
+      #- run: make gendiff
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
         env:
