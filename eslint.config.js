@@ -15,9 +15,7 @@ const compat = new FlatCompat({
 });
 
 export default [
-  {
-    ignores: ['dist/'],
-  },
+  { ignores: ['dist/'] },
   {
     languageOptions: {
       globals: {
@@ -26,8 +24,6 @@ export default [
         ...globals.browser,
       },
       parserOptions: {
-        // Eslint doesn't supply ecmaVersion in `parser.js` `context.parserOptions`
-        // This is required to avoid ecmaVersion < 2015 error or 'import' / 'export' error
         ecmaVersion: 'latest',
         sourceType: 'module',
       },
@@ -58,15 +54,11 @@ export default [
       'import/no-extraneous-dependencies': 'off',
     },
   },
-  // Добавляем override для postcss.config.cjs
+  // Правильный override для postcss.config.cjs:
   {
-    overrides: [
-      {
-        files: ['postcss.config.cjs'],
-        rules: {
-          'global-require': 'off',
-        },
-      },
-    ],
+    files: ['postcss.config.cjs'],
+    rules: {
+      'global-require': 'off',
+    },
   },
-];
+]
