@@ -13,7 +13,8 @@ test:
 lint:
 	npx eslint .
 
-.PHONY: test
+.PHONY: 
+	test
 
 versel:
 	npm run build
