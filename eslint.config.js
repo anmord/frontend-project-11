@@ -58,4 +58,15 @@ export default [
       'import/no-extraneous-dependencies': 'off',
     },
   },
+  // Добавляем override для postcss.config.cjs
+  {
+    overrides: [
+      {
+        files: ['postcss.config.cjs'],
+        rules: {
+          'global-require': 'off',
+        },
+      },
+    ],
+  },
 ];
