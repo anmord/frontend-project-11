@@ -34,7 +34,7 @@
       left: 0;
       box-sizing: content-box;
       -webkit-font-smoothing: antialiased;
-      font-smoothing: antialiased;
+      /* font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
 
       /* To fix the following issue:
@@ -138,8 +138,9 @@
       top: 15px;
       right: 15px;
       -webkit-font-smoothing: antialiased;
-      font-smoothing: antialiased;
+      /* font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      */
     }
 
     #disable_on_this_page_container {
