@@ -34,6 +34,7 @@
     "ajv": "^8.17.1",
     "babel-jest": "^29.3.1",
     "babel-loader": "^9.1.2",
+    "bootstrap": "^5.3.8",
     "css-loader": "^6.7.3",
     "debug": "^4.3.4",
     "eslint": "^8.57.0",
