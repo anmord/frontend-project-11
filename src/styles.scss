@@ -64,6 +64,9 @@
       margin-top: 2px;
       margin-bottom: 3px;
     }
+
+
+    /*
     #tat_input_container {
       display: flex;
       margin-bottom: 10px;
@@ -138,9 +141,9 @@
       top: 15px;
       right: 15px;
       -webkit-font-smoothing: antialiased;
-      /* font-smoothing: antialiased;
+      font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
-      */
+      
     }
 
     #disable_on_this_page_container {
@@ -169,4 +172,4 @@
       width: 12px;
       height: 12px;
       background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, darkgrey 46%, darkgrey 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, darkgrey 46%,  darkgrey 56%,transparent 56%, transparent 100%);
-    }
+    } 
