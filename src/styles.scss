@@ -1,4 +1,4 @@
-@import "bootstrap/scss/bootstrap";
+/* @import "bootstrap/scss/bootstrap"; */
 
 .pos_translation {
       padding-bottom: 3px;
@@ -140,7 +140,7 @@
       z-index: 2147483647;
       top: 15px;
       right: 15px;
-      /* -webkit-font-smoothing: antialiased; */
+      -webkit-font-smoothing: antialiased; 
       /* font-smoothing: antialiased; */
       text-rendering: optimizeLegibility;
       
