@@ -1,11 +1,11 @@
 develop:
-	npx webpack serve
+	npx vite --port 3000
 
 install:
 	npm ci
 
 build:
-	NODE_ENV=production npx webpack
+	NODE_ENV=production npm run build
 
 test:
 	npm test
