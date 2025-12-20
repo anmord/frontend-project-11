@@ -1,21 +1,12 @@
 import globals from 'globals';
-
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
-import pluginJs from '@eslint/js';
 import importPlugin from 'eslint-plugin-import';
 
-// mimic CommonJS variables -- not needed if using CommonJS
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: pluginJs.configs.recommended,
-});
-
 export default [
-  { ignores: ['dist/'] },
+  {
+    ignores: ['dist/', 'node_modules/'],
+  },
+
+  // Базовый ESLint + языковые настройки
   {
     languageOptions: {
       globals: {
@@ -28,12 +19,15 @@ export default [
         sourceType: 'module',
       },
     },
-    plugins: { import: importPlugin },
-    rules: {
-      ...importPlugin.configs.recommended.rules,
+    plugins: {
+      import: importPlugin,
     },
   },
-  ...compat.extends('airbnb-base'),
+
+  // Airbnb Base как Flat Config
+  airbnbBase,
+
+  // Дополнительные правила проекта
   {
     rules: {
       'no-underscore-dangle': [
@@ -54,7 +48,8 @@ export default [
       'import/no-extraneous-dependencies': 'off',
     },
   },
-  // Правильный override для postcss.config.cjs:
+
+  // Override для postcss.config.cjs
   {
     files: ['postcss.config.cjs'],
     rules: {
@@ -62,3 +57,4 @@ export default [
     },
   },
 ];
+
