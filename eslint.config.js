@@ -19,13 +19,11 @@ export default [
         sourceType: 'module',
       },
     },
+    // подключение плагинов
     plugins: {
       import: importPlugin,
     },
   },
-
-  // Airbnb Base как Flat Config
-  airbnbBase,
 
   // Дополнительные правила проекта
   {
@@ -57,4 +55,3 @@ export default [
     },
   },
 ];
-
