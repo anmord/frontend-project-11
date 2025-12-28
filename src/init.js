@@ -1,9 +1,17 @@
 // @ts-check
 
-import Example from './Example.js';
+import app from './app.js';
 
 export default () => {
-  const element = document.getElementById('point');
-  const obj = new Example(element);
-  obj.init();
+  const state = {
+    feeds: [],
+  };
+
+  const elements = {
+    form: document.querySelector('.rss-form'),
+    input: document.querySelector('#url-input'),
+    feedback: document.querySelector('.feedback'),
+  };
+
+  app(state, elements);
 };
