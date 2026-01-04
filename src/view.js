@@ -27,6 +27,7 @@ export const renderFeeds = (feeds) => {
   body.classList.add('card-body');
 
   const title = document.createElement('h2');
+  title.classList.add('card-title', 'h4')
   title.textContent = 'Фиды';
 
   const list = document.createElement('ul');
@@ -37,9 +38,11 @@ export const renderFeeds = (feeds) => {
     li.classList.add('list-group-item', 'border-0');
 
     const h3 = document.createElement('h3');
+    h3.classList.add('h6', 'm-0');
     h3.textContent = title;
 
     const p = document.createElement('p');
+    p.classList.add('small', 'm-0', 'text-black-50');
     p.textContent = description;
 
     li.append(h3, p);
