@@ -9,6 +9,9 @@ export const renderError = (input, feedback, errorCode) => {
 
   input.classList.add('is-invalid');
   feedback.textContent = i18next.t(errorCode);
+
+  feedback.classList.remove('text-success');
+  feedback.classList.add('text-danger');
 };
 
 export const renderFeeds = (feeds) => {
@@ -69,6 +72,7 @@ export const renderPosts = (posts, readPosts) => {
   posts.forEach((post) => {
     const li = document.createElement('li');
     li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start', 'border-0');
+    li.dataset.id = post.id;
 
     const a = document.createElement('a');
     a.href = post.link;
@@ -82,7 +86,6 @@ export const renderPosts = (posts, readPosts) => {
     button.type = 'button';
     button.classList.add('btn', 'btn-outline-primary', 'btn-sm');
     button.textContent = 'Просмотр';
-    button.dataset.id = post.id;
 
     li.append(a, button);
     list.append(li);
@@ -98,4 +101,3 @@ export const renderSuccess = (feedback) => {
   feedback.classList.remove('text-danger');
   feedback.classList.add('text-success');
 };
-
