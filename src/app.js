@@ -1,5 +1,5 @@
 import { buildUrlSchema } from './validation.js';
-import { renderError, renderFeeds, renderPosts } from './view.js';
+import { renderError, renderFeeds, renderPosts, renderSuccess } from './view.js';
 import { loadRSS } from './rssLoader.js';
 import { parseRSS } from './parser.js';
 import { updateFeeds } from './updater.js';
@@ -14,6 +14,7 @@ export default (state, elements) => {
     const existingUrls = state.feeds.map((feed) => feed.url);
 
     renderError(input, feedback, null);
+    feedback.classList.remove('text-success');
     state.form.status = 'loading';
 
     buildUrlSchema(existingUrls)
@@ -28,6 +29,9 @@ export default (state, elements) => {
 
       renderFeeds(state.feeds);
       renderPosts(state.posts, state.readPosts);
+
+      state.form.status = 'success';
+      renderSuccess(feedback, i18next.t('success.added'));
 
       const postsContainer = document.querySelector('.posts');
 

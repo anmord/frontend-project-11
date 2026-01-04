@@ -92,3 +92,9 @@ export const renderPosts = (posts, readPosts) => {
   card.append(body, list);
   container.append(card);
 };
+
+export const renderSuccess = (feedback, message) => {
+  feedback.textContent = message;
+  feedback.classList.remove('text-danger');
+  feedback.classList.add('text-success');
+};
