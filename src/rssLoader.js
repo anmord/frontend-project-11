@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const loadRSS = (url) => {
-  const proxyUrl = 'https://allorigins.hexlet.app/get';
+  const proxyUrl = 'https://lorem-rss.hexlet.app/feed';
 
   return axios.get(proxyUrl, {
     params: {
