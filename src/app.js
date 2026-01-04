@@ -31,12 +31,15 @@ export default (state, elements) => {
       input.focus();
     })
     .catch((err) => {
-      state.form.status = 'error';
+      let errorCode;
 
-      const errorCode =
-        err.message === 'errors.invalidRss'
-          ? 'errors.invalidRss'
-          : 'errors.network';
+      if (err.name === 'ValidationError') {
+        errorCode = err.message;
+      } else if (err.message === 'errors.invalidRss') {
+        errorCode = 'errors.invalidRss';
+      } else {
+        errorCode = 'errors.network';
+      }
 
       renderError(input, feedback, errorCode);
     });
