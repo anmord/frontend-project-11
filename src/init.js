@@ -5,6 +5,9 @@ import app from './app.js';
 export default () => {
   const state = {
     feeds: [],
+    form: {
+      error: null,
+    },
   };
 
   const elements = {

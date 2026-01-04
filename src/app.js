@@ -1,5 +1,5 @@
 import { buildUrlSchema } from './validation.js';
-import { showValidation, clearValidation } from './view.js';
+import { renderError } from './view.js';
 
 export default (state, elements) => {
   const { form, input, feedback } = elements;
@@ -10,18 +10,20 @@ export default (state, elements) => {
     const url = input.value.trim();
     const existingUrls = state.feeds.map(feed => feed.url);
 
-    clearValidation(input, feedback);
+    renderError(input, feedback, null);
 
     buildUrlSchema(existingUrls)
       .validate(url)
       .then(() => {
         state.feeds.push({ url });
+        state.form.error = null;
 
         input.value = '';
         input.focus();
       })
       .catch((err) => {
-        showValidation(input, feedback, err.message);
+        state.form.error = err.message;
+        renderError(input, feedback, err.message);
       });
   });
 };
