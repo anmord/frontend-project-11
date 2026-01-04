@@ -93,8 +93,9 @@ export const renderPosts = (posts, readPosts) => {
   container.append(card);
 };
 
-export const renderSuccess = (feedback, message) => {
-  feedback.textContent = message;
+export const renderSuccess = (feedback) => {
+  feedback.textContent = i18next.t('success.added');
   feedback.classList.remove('text-danger');
   feedback.classList.add('text-success');
 };
+
