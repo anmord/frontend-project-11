@@ -27,7 +27,7 @@ export default (state, elements) => {
       state.posts.push(...posts);
 
       renderFeeds(state.feeds);
-      renderPosts(state.posts);
+      renderPosts(state.posts, state.readPosts);
 
       const postsContainer = document.querySelector('.posts');
 
