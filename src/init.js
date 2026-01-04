@@ -7,6 +7,7 @@ export default () => {
     feeds: [],
     form: {
       error: null,
+      status: 'idle',
     },
   };
 

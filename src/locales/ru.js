@@ -4,6 +4,8 @@ export default {
       required: 'Не должно быть пустым',
       invalidUrl: 'Ссылка должна быть валидным URL',
       duplicate: 'RSS уже существует',
+      invalidRss: 'Ресурс не является валидным RSS',
+      network: 'Ошибка сети',
     },
     success: {
       added: 'RSS успешно загружен',
