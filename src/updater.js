@@ -17,7 +17,7 @@ export const updateFeeds = (state) => {
 
         if (newPosts.length > 0) {
           state.posts.unshift(...newPosts);
-          renderPosts(state.posts);
+          renderPosts(state.posts, state.readPosts);
         }
       })
       .catch(() => {

@@ -48,7 +48,7 @@ export const renderFeeds = (feeds) => {
   container.append(card);
 };
 
-export const renderPosts = (posts) => {
+export const renderPosts = (posts, readPosts) => {
   const container = document.querySelector('.posts');
   container.innerHTML = '';
 
@@ -66,17 +66,25 @@ export const renderPosts = (posts) => {
   const list = document.createElement('ul');
   list.classList.add('list-group', 'border-0', 'rounded-0');
 
-  posts.forEach(({ title, link }) => {
+  posts.forEach((post) => {
     const li = document.createElement('li');
-    li.classList.add('list-group-item', 'border-0');
+    li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start', 'border-0');
 
     const a = document.createElement('a');
-    a.href = link;
-    a.textContent = title;
+    a.href = post.link;
+    a.textContent = post.title;
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
 
-    li.append(a);
+    a.classList.add(readPosts.has(post.id) ? 'fw-normal' : 'fw-bold');
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.classList.add('btn', 'btn-outline-primary', 'btn-sm');
+    button.textContent = 'Предпросмотр';
+    button.dataset.id = post.id;
+
+    li.append(a, button);
     list.append(li);
   });
 

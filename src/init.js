@@ -6,6 +6,7 @@ export default () => {
   const state = {
     feeds: [],
     posts: [],
+    readPosts: new Set(),
     form: {
       error: null,
       status: 'idle',
