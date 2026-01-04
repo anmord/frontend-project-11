@@ -2,6 +2,7 @@ import { buildUrlSchema } from './validation.js';
 import { renderError, renderFeeds, renderPosts } from './view.js';
 import { loadRSS } from './rssLoader.js';
 import { parseRSS } from './parser.js';
+import { updateFeeds } from './updater.js';
 
 export default (state, elements) => {
   const { form, input, feedback } = elements;
@@ -20,11 +21,17 @@ export default (state, elements) => {
     .then(() => loadRSS(url))
     .then(parseRSS)
     .then(({ feed, posts }) => {
-      state.feeds.push({ ...feed, url });
+      const feedWithUrl = { ...feed, url };
+
+      state.feeds.push(feedWithUrl);
       state.posts.push(...posts);
 
       renderFeeds(state.feeds);
       renderPosts(state.posts);
+
+      if (state.feeds.length === 1) {
+        updateFeeds(state); 
+      }
 
       state.form.status = 'success';
       input.value = '';

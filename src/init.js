@@ -5,6 +5,7 @@ import app from './app.js';
 export default () => {
   const state = {
     feeds: [],
+    posts: [],
     form: {
       error: null,
       status: 'idle',
