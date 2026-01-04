@@ -67,6 +67,7 @@ export const renderPosts = (posts, readPosts) => {
   body.classList.add('card-body');
 
   const title = document.createElement('h2');
+  title.classList.add('card-title', 'h4')
   title.textContent = 'Посты';
 
   const list = document.createElement('ul');
