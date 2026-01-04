@@ -81,7 +81,7 @@ export const renderPosts = (posts, readPosts) => {
     const button = document.createElement('button');
     button.type = 'button';
     button.classList.add('btn', 'btn-outline-primary', 'btn-sm');
-    button.textContent = 'Предпросмотр';
+    button.textContent = 'Просмотр';
     button.dataset.id = post.id;
 
     li.append(a, button);
