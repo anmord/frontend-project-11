@@ -36,11 +36,11 @@ export default (state, elements) => {
         let errorCode
         if (err.name === 'ValidationError') {
           errorCode = err.message
-        } else if (err.message === 'errors.invalidRss') 
-        {
+        } 
+        else if (err.message === 'errors.invalidRss') {
           errorCode = 'errors.invalidRss'
-        } else 
-        {
+        } 
+        else {
           errorCode = 'errors.network'
         }
         renderError(input, feedback, errorCode)
