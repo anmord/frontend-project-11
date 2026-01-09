@@ -8,5 +8,5 @@ export const loadRSS = (url) => {
     },
     timeout: 10000,
   })
-    .then((response) => response.data.contents)
+    .then(response => response.data.contents)
 }

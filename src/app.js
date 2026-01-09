@@ -9,7 +9,7 @@ export default (state, elements) => {
   form.addEventListener('submit', (e) => {
     e.preventDefault()
     const url = input.value.trim()
-    const existingUrls = state.feeds.map((feed) => feed.url)
+    const existingUrls = state.feeds.map(feed => feed.url)
     renderError(input, feedback, null)
     feedback.classList.remove('text-success')
     state.form.status = 'loading'
@@ -35,9 +35,11 @@ export default (state, elements) => {
         let errorCode
         if (err.name === 'ValidationError') {
           errorCode = err.message
-        } else if (err.message === 'errors.invalidRss') {
+        } else if (err.message === 'errors.invalidRss') 
+        {
           errorCode = 'errors.invalidRss'
-        } else {
+        } else 
+        {
           errorCode = 'errors.network'
         }
         renderError(input, feedback, errorCode)
@@ -52,7 +54,7 @@ export default (state, elements) => {
     renderPosts(state.posts, state.readPosts)
     const button = e.target.closest('button')
     if (!button) return
-    const post = state.posts.find((p) => p.id === postId)
+    const post = state.posts.find(p => p.id === postId)
     if (!post) return
     const modalTitle = document.querySelector('.modal-title')
     const modalBody = document.querySelector('.modal-body')

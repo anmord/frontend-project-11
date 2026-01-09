@@ -10,7 +10,7 @@ export const parseRSS = (xml) => {
     title: channel.querySelector('title')?.textContent,
     description: channel.querySelector('description')?.textContent,
   }
-  const posts = [...doc.querySelectorAll('item')].map((item) => ({
+  const posts = [...doc.querySelectorAll('item')].map(item => ({
     id: crypto.randomUUID(),
     feedId: feed.id,
     title: item.querySelector('title')?.textContent,
