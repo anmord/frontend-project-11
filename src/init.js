@@ -1,7 +1,5 @@
 // @ts-check
-
-import app from './app.js';
-
+import app from './app.js'
 export default () => {
   const state = {
     feeds: [],
@@ -11,13 +9,11 @@ export default () => {
       error: null,
       status: 'idle',
     },
-  };
-
+  }
   const elements = {
     form: document.querySelector('.rss-form'),
     input: document.querySelector('#url-input'),
     feedback: document.querySelector('.feedback'),
-  };
-
-  app(state, elements);
-};
+  }
+  app(state, elements)
+}

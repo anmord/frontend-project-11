@@ -11,4 +11,4 @@ export default {
       added: 'RSS успешно загружен',
     },
   },
-};
+}

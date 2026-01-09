@@ -1,6 +1,5 @@
-import globals from 'globals';
-import importPlugin from 'eslint-plugin-import';
-
+import globals from 'globals'
+import importPlugin from 'eslint-plugin-import'
 export default [
   {
     ignores: ['dist/', 'node_modules/'],
@@ -11,6 +10,7 @@ export default [
         ...globals.node,
         ...globals.jest,
         ...globals.browser,
+        bootstrap: 'readonly', // глобальная переменная
       },
       parserOptions: {
         ecmaVersion: 'latest',
@@ -21,18 +21,21 @@ export default [
       import: importPlugin,
     },
     rules: {
-      'semi': ['error', 'always'],
-      'comma-dangle': ['error', 'always-multiline'],
-      'no-trailing-spaces': 'error',
-      'eol-last': ['error', 'always'],
+      'semi': ['error', 'never'],
+      'arrow-parens': ['error', 'always'],
       'brace-style': ['error', '1tbs', { allowSingleLine: false }],
-      'arrow-parens': ['error', 'as-needed'],
-      'no-underscore-dangle': ['error', { allow: ['__filename', '__dirname'] }],
-      'no-console': 'off',
+      'no-multiple-empty-lines': ['error', { max: 0, maxEOF: 0 }],
+      'no-underscore-dangle': [
+        'error',
+        { allow: ['__filename', '__dirname'] },
+      ],
       'import/extensions': ['error', { js: 'always' }],
       'import/no-named-as-default': 'off',
       'import/no-named-as-default-member': 'off',
       'import/no-extraneous-dependencies': 'off',
+      'no-console': 'off',
+      'no-trailing-spaces': ['error'],
+      'eol-last': ['error', 'always'],
     },
   },
   {
@@ -41,4 +44,4 @@ export default [
       'global-require': 'off',
     },
   },
-];
+]
