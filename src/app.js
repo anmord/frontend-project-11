@@ -8,34 +8,6 @@ export default (state, elements) => {
   const { form, input, feedback } = elements;
   const postsContainer = document.querySelector('.posts');
 
-  postsContainer.addEventListener('click', (e) => {
-    const li = e.target.closest('li');
-    if (!li) return;
-
-    const postId = li.dataset.id;
-    if (!postId) return;
-
-    state.readPosts.add(postId);
-    renderPosts(state.posts, state.readPosts);
-
-    const button = e.target.closest('button');
-    if (!button) return;
-
-    const post = state.posts.find((p) => p.id === postId);
-    if (!post) return;
-
-    const modalTitle = document.querySelector('.modal-title');
-    const modalBody = document.querySelector('.modal-body');
-    const fullArticle = document.querySelector('.full-article');
-
-    modalTitle.textContent = post.title;
-    modalBody.textContent = post.description;
-    fullArticle.href = post.link;
-
-    const modal = new bootstrap.Modal(document.getElementById('modal'));
-    modal.show();
-  });
-
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -81,5 +53,33 @@ export default (state, elements) => {
 
         renderError(input, feedback, errorCode);
       });
+  });
+
+  postsContainer.addEventListener('click', (e) => {
+    const li = e.target.closest('li');
+    if (!li) return;
+
+    const postId = li.dataset.id;
+    if (!postId) return;
+
+    state.readPosts.add(postId);
+    renderPosts(state.posts, state.readPosts);
+
+    const button = e.target.closest('button');
+    if (!button) return;
+
+    const post = state.posts.find((p) => p.id === postId);
+    if (!post) return;
+
+    const modalTitle = document.querySelector('.modal-title');
+    const modalBody = document.querySelector('.modal-body');
+    const fullArticle = document.querySelector('.full-article');
+
+    modalTitle.textContent = post.title;
+    modalBody.textContent = post.description;
+    fullArticle.href = post.link;
+
+    const modal = new bootstrap.Modal(document.getElementById('modal'));
+    modal.show();
   });
 };
