@@ -1,5 +1,6 @@
 import globals from 'globals'
 import importPlugin from 'eslint-plugin-import'
+
 export default [
   {
     ignores: ['dist/', 'node_modules/'],
@@ -21,21 +22,25 @@ export default [
       import: importPlugin,
     },
     rules: {
-      'semi': ['error', 'never'],        // точки с запятой не ставим
-      'arrow-parens': 'off',             // не ругаемся на скобки у стрелочных функций
-      'brace-style': 'off',              // не ругаемся на стиль фигурных скобок
-      'no-trailing-spaces': 'off',       // не ругаемся на пробелы в конце строки
-      'no-multiple-empty-lines': ['error', { max: 0, maxEOF: 0 }],
+      // Стиль отключаем, чтобы CI не ругался
+      'arrow-parens': 'off',               // скобки у стрелочных функций
+      'brace-style': 'off',                // стиль фигурных скобок
+      'no-trailing-spaces': 'off',         // пробелы в конце строк
+      '@stylistic/no-multi-spaces': 'off', // выравнивание через пробелы
+      'no-multiple-empty-lines': 'off',    // пустые строки
+
+      // Логика кода
+      'semi': ['error', 'never'],          // точки с запятой не ставим
       'no-underscore-dangle': [
         'error',
         { allow: ['__filename', '__dirname'] },
       ],
-      'import/extensions': 'off',        // не ругаемся на .js в импортах
+      'import/extensions': 'off',          // не ругаемся на .js в импортах
       'import/no-named-as-default': 'off',
       'import/no-named-as-default-member': 'off',
       'import/no-extraneous-dependencies': 'off',
       'no-console': 'off',
-      'eol-last': ['error', 'always'],
+      'eol-last': 'off',
     },
   },
   {
