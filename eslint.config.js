@@ -11,7 +11,7 @@ export default [
         ...globals.node,
         ...globals.jest,
         ...globals.browser,
-        bootstrap: 'readonly', // глобальная переменная
+        bootstrap: 'readonly',
       },
       parserOptions: {
         ecmaVersion: 'latest',
@@ -22,20 +22,21 @@ export default [
       import: importPlugin,
     },
     rules: {
-      // Стиль отключаем, чтобы CI не ругался
-      'arrow-parens': 'off',               // скобки у стрелочных функций
-      'brace-style': 'off',                // стиль фигурных скобок
-      'no-trailing-spaces': 'off',         // пробелы в конце строк
-      '@stylistic/no-multi-spaces': 'off', // выравнивание через пробелы
-      'no-multiple-empty-lines': 'off',    // пустые строки
+      'arrow-parens': 'off',
+      'brace-style': 'off',
+      'no-trailing-spaces': 'off',
+      '@stylistic/no-multi-spaces': 'off',
+      '@stylistic/brace-style': 'off',
+      '@stylistic/no-trailing-spaces': 'off',
+      'no-multiple-empty-lines': 'off',
 
       // Логика кода
-      'semi': ['error', 'never'],          // точки с запятой не ставим
+      'semi': ['error', 'never'],
       'no-underscore-dangle': [
         'error',
         { allow: ['__filename', '__dirname'] },
       ],
-      'import/extensions': 'off',          // не ругаемся на .js в импортах
+      'import/extensions': 'off',
       'import/no-named-as-default': 'off',
       'import/no-named-as-default-member': 'off',
       'import/no-extraneous-dependencies': 'off',

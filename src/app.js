@@ -1,3 +1,4 @@
+/* global bootstrap */
 import { buildUrlSchema } from './validation.js'
 import { renderError, renderFeeds, renderPosts, renderSuccess } from './view.js'
 import { loadRSS } from './rssLoader.js'
