@@ -1,4 +1,4 @@
-export const parseRSS = (xml) => {
+export const parseRSS = xml => {
   const parser = new DOMParser();
   const doc = parser.parseFromString(xml, 'application/xml');
 
@@ -14,7 +14,7 @@ export const parseRSS = (xml) => {
     description: channel.querySelector('description')?.textContent,
   };
 
-  const posts = [...doc.querySelectorAll('item')].map((item) => ({
+  const posts = [...doc.querySelectorAll('item')].map(item => ({
     id: crypto.randomUUID(),
     feedId: feed.id,
     title: item.querySelector('title')?.textContent,

@@ -14,7 +14,7 @@ export const renderError = (input, feedback, errorCode) => {
   feedback.classList.add('text-danger');
 };
 
-export const renderFeeds = (feeds) => {
+export const renderFeeds = feeds => {
   const container = document.querySelector('.feeds');
   container.innerHTML = '';
 
@@ -27,7 +27,7 @@ export const renderFeeds = (feeds) => {
   body.classList.add('card-body');
 
   const title = document.createElement('h2');
-  title.classList.add('card-title', 'h4')
+  title.classList.add('card-title', 'h4');
   title.textContent = 'Фиды';
 
   const list = document.createElement('ul');
@@ -67,13 +67,13 @@ export const renderPosts = (posts, readPosts) => {
   body.classList.add('card-body');
 
   const title = document.createElement('h2');
-  title.classList.add('card-title', 'h4')
+  title.classList.add('card-title', 'h4');
   title.textContent = 'Посты';
 
   const list = document.createElement('ul');
   list.classList.add('list-group', 'border-0', 'rounded-0');
 
-  posts.forEach((post) => {
+  posts.forEach(post => {
     const li = document.createElement('li');
     li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start', 'border-0');
     li.dataset.id = post.id;
@@ -100,7 +100,7 @@ export const renderPosts = (posts, readPosts) => {
   container.append(card);
 };
 
-export const renderSuccess = (feedback) => {
+export const renderSuccess = feedback => {
   feedback.textContent = i18next.t('success.added');
   feedback.classList.remove('text-danger');
   feedback.classList.add('text-success');

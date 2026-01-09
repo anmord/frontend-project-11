@@ -5,8 +5,6 @@ export default [
   {
     ignores: ['dist/', 'node_modules/'],
   },
-
-  // Базовый ESLint + языковые настройки
   {
     languageOptions: {
       globals: {
@@ -19,35 +17,24 @@ export default [
         sourceType: 'module',
       },
     },
-    // подключение плагинов
     plugins: {
       import: importPlugin,
     },
-  },
-
-  // Дополнительные правила проекта
-  {
     rules: {
-      'no-underscore-dangle': [
-        'error',
-        {
-          allow: ['__filename', '__dirname'],
-        },
-      ],
-      'import/extensions': [
-        'error',
-        {
-          js: 'always',
-        },
-      ],
+      'semi': ['error', 'always'],
+      'comma-dangle': ['error', 'always-multiline'],
+      'no-trailing-spaces': 'error',
+      'eol-last': ['error', 'always'],
+      'brace-style': ['error', '1tbs', { allowSingleLine: false }],
+      'arrow-parens': ['error', 'as-needed'],
+      'no-underscore-dangle': ['error', { allow: ['__filename', '__dirname'] }],
+      'no-console': 'off',
+      'import/extensions': ['error', { js: 'always' }],
       'import/no-named-as-default': 'off',
       'import/no-named-as-default-member': 'off',
-      'no-console': 'off',
       'import/no-extraneous-dependencies': 'off',
     },
   },
-
-  // Override для postcss.config.cjs
   {
     files: ['postcss.config.cjs'],
     rules: {

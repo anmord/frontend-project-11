@@ -8,11 +8,11 @@ export default (state, elements) => {
   const { form, input, feedback } = elements;
   const postsContainer = document.querySelector('.posts');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', e => {
     e.preventDefault();
 
     const url = input.value.trim();
-    const existingUrls = state.feeds.map((feed) => feed.url);
+    const existingUrls = state.feeds.map(feed => feed.url);
 
     renderError(input, feedback, null);
     feedback.classList.remove('text-success');
@@ -40,7 +40,7 @@ export default (state, elements) => {
         input.value = '';
         input.focus();
       })
-      .catch((err) => {
+      .catch(err => {
         let errorCode;
 
         if (err.name === 'ValidationError') {
@@ -55,7 +55,7 @@ export default (state, elements) => {
       });
   });
 
-  postsContainer.addEventListener('click', (e) => {
+  postsContainer.addEventListener('click', e => {
     const li = e.target.closest('li');
     if (!li) return;
 
@@ -68,7 +68,7 @@ export default (state, elements) => {
     const button = e.target.closest('button');
     if (!button) return;
 
-    const post = state.posts.find((p) => p.id === postId);
+    const post = state.posts.find(p => p.id === postId);
     if (!post) return;
 
     const modalTitle = document.querySelector('.modal-title');
